@@ -1,6 +1,6 @@
 Task: estimate concrete pole's inclination
 
-MEAN ERROR on 99 images is 15%
+MEAN ERROR on 99 test images is 15%
 
 Algorithm:
 1. Read/Open an image (-> np array)
@@ -22,3 +22,4 @@ Algorithm:
 TO DO:
 - When picking 2 lines out of all lines generated, we could also check if they are parallel, play with
 their lenght etc.
+- Implement metadata reading and taking it into account in case camera was tilted when an image was taken
