@@ -91,7 +91,8 @@ def main():
     print("\nMEAN ERROR:", mean_error * 100, "%")
 
     if images_without_angle_calculated:
-        print("FAILED TO CALCULATE ANGLE FOR:", images_without_angle_calculated)
+        print("FAILED TO CALCULATE ANGLE FOR:",
+              ' '.join(map(str, images_without_angle_calculated)))
 
 
 if __name__ == "__main__":

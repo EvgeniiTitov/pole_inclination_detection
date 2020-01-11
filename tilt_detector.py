@@ -138,6 +138,7 @@ class TiltDetector:
 
             if line[0][0] <= left_section_and_margin and line[1][0] <= left_section_and_margin:
                 lines_to_the_left.append(line)
+                continue  # to make sure the same line doesn't get added to both
 
             if line[0][0] >= right_section_and_margin and line[1][0] >= right_section_and_margin:
                 lines_to_the_right.append(line)
@@ -152,7 +153,7 @@ class TiltDetector:
             y1 = left_line[0][1]
             x2 = left_line[1][0]
             y2 = left_line[1][1]
-            left_line_angle = round(90 - np.rad2deg(np.arctan2(abs(y2 -y1), abs(x2 - x1))), 2)
+            left_line_angle = round(90 - np.rad2deg(np.arctan2(abs(y2 - y1), abs(x2 - x1))), 2)
 
             for right_line in lines_to_the_right:
 
@@ -160,7 +161,7 @@ class TiltDetector:
                 y1_1 = right_line[0][1]
                 x2_2 = right_line[1][0]
                 y2_2 = right_line[1][1]
-                right_line_angle = round(90 - np.rad2deg(np.arctan2(abs(y2_2 -y1_1), abs(x2_2 - x1_1))), 2)
+                right_line_angle = round(90 - np.rad2deg(np.arctan2(abs(y2_2 - y1_1), abs(x2_2 - x1_1))), 2)
 
                 delta = abs(left_line_angle - right_line_angle)
 

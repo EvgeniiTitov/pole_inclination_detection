@@ -1,6 +1,6 @@
 Task: estimate concrete pole's inclination
 
-MEAN ERROR on 99 test images is 15%
+MEAN ERROR on 99 test images is 11.5%
 
 Algorithm:
 1. Read/Open an image (-> np array)
@@ -14,12 +14,10 @@ Algorithm:
 
 4. Merge lines into longer ones where possible
 
-5. Create a vertical line in the middle of the image (to extract lines representing pole's edges out of all
-   the lines detected
+5. Use imaginary vertical line in the middle of the image (to extract lines representing pole's edges out
+   of all the lines detected
 
 6. Using this vertical line pick 2 lines (one to the left, one to the right).
 
 TO DO:
-- When picking 2 lines out of all lines generated, we could also check if they are parallel, play with
-their lenght etc.
 - Implement metadata reading and taking it into account in case camera was tilted when an image was taken
