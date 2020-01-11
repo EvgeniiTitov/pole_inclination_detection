@@ -1,4 +1,4 @@
-Task: estimate concrete pole's inclination
+Task: estimate concrete pole inclination
 
 MEAN ERROR on 99 test images is 11.5%
 
@@ -14,10 +14,13 @@ Algorithm:
 
 4. Merge lines into longer ones where possible
 
-5. Use imaginary vertical line in the middle of the image (to extract lines representing pole's edges out
-   of all the lines detected
+5. Use imaginary vertical line in the middle of the image to separate the generated lines lying to the right
+   and to the left of that imaginary line. This ensures we do not pick 2 lines located too close to one another
 
-6. Using this vertical line pick 2 lines (one to the left, one to the right).
+6. Among the separated lines pick the ones that are most parallel
+
+7. Use these two lines to calculate the angle
 
 TO DO:
 - Implement metadata reading and taking it into account in case camera was tilted when an image was taken
+- Potential memory leak identified. Same image gives different results when getting processed alone or in a bulk
