@@ -59,6 +59,7 @@ class TiltDetector:
         # number of lines we are working with
         merged_lines = self.merger.merge_lines(lines_to_merge)
 
+        # VISUALIZE MERGED LINES
         #self.processer.save_image(merged_lines, image, image_name, len(merged_lines))
 
         # Pick lines based on which the angle will be calculated. Ideally we are looking for 2 lines
@@ -75,26 +76,12 @@ class TiltDetector:
             print("No lines found, angle cannot be calculated")
             return
 
-
-        # DELETE ME:
-        return
-
-        assert len(the_lines) == 1 or len(the_lines) == 2, "ERROR: Wrong number of lines found"
+        assert the_lines and len(the_lines) == 1 or len(the_lines) == 2, "ERROR: Wrong number of lines found"
 
         # Calculate inclination angle
         angle = self.calculate_angle(the_lines)
 
-
-        if self.save_results_flag:
-            # Save images
-            self.save_processed_image(lines=the_lines,
-                                      image=image,
-                                      image_name=image_name,
-                                      angle=angle)
-        else:
-            # Show processed image
-            pass
-
+        self.processer.save_image(the_lines, image, image_name, angle)
 
         return angle
 
@@ -137,15 +124,14 @@ class TiltDetector:
         :param image: image getting processed
         :return: 2 lines (list of lists)
         """
-        pole_lines = list()
 
-        # Now sort all lines based on their position relatively to imaginary dividing line
+        # Sort all lines based on their position relatively to imaginary dividing line
         # in the middle of the image. We allow 5% margin along the dividing line to account
         # for lines which might have a point slightly shifted to the *wrong* side along X axis
         lines_to_the_left = list()
         lines_to_the_right = list()
-        left_section_and_margin = int(image.shape[1] * 0.55)
-        right_section_and_margin = int(image.shape[1] * 0.45)
+        left_section_and_margin = int(image.shape[1] * 0.6)
+        right_section_and_margin = int(image.shape[1] * 0.4)
 
         while merged_lines:
             line = merged_lines.pop()
@@ -156,19 +142,34 @@ class TiltDetector:
             if line[0][0] >= right_section_and_margin and line[1][0] >= right_section_and_margin:
                 lines_to_the_right.append(line)
 
-        # Pick 2 most parallel lines
-        # Just 2 FOR loops. Slow, but we do not deal with large number of lines anyway
-        difference_in_parallelism = 0, None, None # difference, line 1, line 2
+        # Pick 2 best lines (2 most parallel)
+        # O(n2). Slow, but we do not deal with large number of lines anyway
+        optimal_lines = 180, None, None # angle difference, line 1, line 2
 
-        for line in lines_to_the_left:
-            pass
+        for left_line in lines_to_the_left:
 
-        # STOPPED HERE:
-        # 1) PICK 2 MOST PARALLEL LINES
-        # 2) ADD ALREADY CALCULATED ANGLE TO YOUR LINES (IN LINESMERGER) SO YOU DO NOT HAVE TO
-        # RECALCULATE IT
+            x1 = left_line[0][0]
+            y1 = left_line[0][1]
+            x2 = left_line[1][0]
+            y2 = left_line[1][1]
+            left_line_angle = round(90 - np.rad2deg(np.arctan2(abs(y2 -y1), abs(x2 - x1))), 2)
 
+            for right_line in lines_to_the_right:
 
+                x1_1 = right_line[0][0]
+                y1_1 = right_line[0][1]
+                x2_2 = right_line[1][0]
+                y2_2 = right_line[1][1]
+                right_line_angle = round(90 - np.rad2deg(np.arctan2(abs(y2_2 -y1_1), abs(x2_2 - x1_1))), 2)
+
+                delta = abs(left_line_angle - right_line_angle)
+
+                if not delta < optimal_lines[0]:
+                    continue
+
+                optimal_lines = delta, left_line, right_line
+
+        return [optimal_lines[1], optimal_lines[2]]
 
     def generate_lines(self, image):
         """Generates lines based on which the inclination angle will be
@@ -286,7 +287,7 @@ class LineMerger:
         """
         Discards all lines that are not within N degrees cone
         :param lines:
-        :return:
+        :return: vertical lines [(point1, point2, angle of the line), ]
         """
         # Discard horizontal lines (no point merging lines that are not what we need)
         vertical_lines = list()

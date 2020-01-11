@@ -67,6 +67,7 @@ def main():
 
     total_error = 0
     images_with_calculated_angles = 0
+    images_without_angle_calculated = []
 
     for path_to_image in images_to_process:
 
@@ -76,16 +77,21 @@ def main():
         truth_angle = float(image_name[3:7])
         predicted_tilt_angle = detector.process_image(path_to_image)
 
-        if predicted_tilt_angle:
+        if predicted_tilt_angle is not None:
             difference = abs(truth_angle - predicted_tilt_angle)
             error = round(difference / truth_angle, 3)
             print("Error:", error)
 
             total_error += error
             images_with_calculated_angles += 1
+        else:
+            images_without_angle_calculated.append(image_name)
 
     mean_error = round(total_error / images_with_calculated_angles, 3)
     print("\nMEAN ERROR:", mean_error * 100, "%")
+
+    if images_without_angle_calculated:
+        print("FAILED TO CALCULATE ANGLE FOR:", images_without_angle_calculated)
 
 
 if __name__ == "__main__":

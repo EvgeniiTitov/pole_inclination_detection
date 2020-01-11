@@ -50,13 +50,6 @@ class ResultsHandler:
                      (0, 0, 255),
                      self._line_thickness)
 
-            x1 = line[0][0]
-            y1 = line[0][1]
-            x2 = line[1][0]
-            y2 = line[1][1]
-
-            print(round(90 - np.rad2deg(np.arctan2(abs(y2 - y1), abs(x2 - x1))), 2))
-
         cv2.putText(image,
                     str(angle),
                     (int(image.shape[1]*0.35), int(image.shape[0]*0.95)),
