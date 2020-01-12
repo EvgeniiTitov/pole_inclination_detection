@@ -1,5 +1,6 @@
 import cv2
 import os
+import sys
 import numpy as np
 
 
@@ -75,3 +76,92 @@ class ResultsHandler:
                    angle):
 
         pass
+
+
+class LineExtender:
+
+    def extend_lines(self,
+                     image,
+                     the_lines):
+
+        """
+        Extends the lines provided within an image (until the lines reach
+        image's boundaries)
+        :param image: an image on which the lines were detetced
+        :param the_lines: list of lists, lines
+        :return: coordinates of extended lines, list of lists
+        """
+        import math
+
+        lines_extended = list()
+
+        for line in the_lines:
+
+            x1, y1 = line[0][0], line[0][1]
+            x2, y2 = line[1][0], line[1][1]
+
+            current_lenght = math.sqrt((x1 - x2)**2 + (y2 - y1)**2)
+
+            print()
+            new_lenght_multiplier = int((100 * current_lenght) / (image.shape[0] - x1))
+            print(line)
+            print(new_lenght_multiplier)
+            continue
+
+
+            new_lenght = image.shape[0]
+
+            x3_bottom = int(x2 + (x2 - x1) / current_lenght * new_lenght)
+            y3_bottom = int(y2 + (y2 - y1) / current_lenght * new_lenght)
+
+            x3_top = int()
+            y3_top = 0
+
+            lines_extended.append((x3_bottom, y3_bottom))
+
+        sys.exit()
+
+        return lines_extended
+
+
+class PolygonRetriever:
+    """
+    Class tasked with retrieving image section between the lines (pole edges)
+    detected in order to calculate pole's inclination angle.
+    Since the lines are never full image height, it employs the LineExtender
+    class to extend those lines.
+    """
+    def __init__(
+            self,
+            line_extender
+    ):
+
+        self.line_extender = line_extender
+        self.results_processor = ResultsHandler(save_path=r"D:\Desktop\system_output\TILT_TESTING\extended_lines")
+
+    def retrieve_polygon(self,
+                         path_to_image,
+                         the_lines):
+
+        image = cv2.imread(path_to_image)
+        image_name = os.path.split(path_to_image)[-1]
+
+        extended_lines = self.line_extender.extend_lines(image=image,
+                                                         the_lines=the_lines)
+
+        # print()
+        # print(image.shape)
+        # print("LINES BEFORE BEING EXTENDED:", the_lines)
+        # print("AFTER EXTENSION:", extended_lines)
+
+        new_lines = [
+            [the_lines[0][0], extended_lines[0]],
+            [the_lines[1][0], extended_lines[1]]
+        ]
+
+        self.results_processor.save_image(lines=new_lines,
+                                          image=image,
+                                          image_name=image_name,
+                                          angle=0)
+
+        return

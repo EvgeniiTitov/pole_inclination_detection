@@ -24,3 +24,6 @@ Algorithm:
 TO DO:
 - Implement metadata reading and taking it into account in case camera was tilted when an image was taken
 - Potential memory leak identified. Same image gives different results when getting processed alone or in a bulk
+
+Commands:
+python main.py --image= OR --folder= --save_path= "to save images" --retrieve= "to extract the polygon"

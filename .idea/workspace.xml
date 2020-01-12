@@ -8,207 +8,10 @@
       <change afterPath="$PROJECT_DIR$/../defect_detection/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../defect_detection/defect_detection/preprocessing/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../defect_detection/defect_detection/preprocessing/preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/01_1.21.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/01_1.21.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/02_2.97.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/02_2.97.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/03_1.06.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/03_1.06.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/04_1.20.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/04_1.20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/05_0.97.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/05_0.97.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/06_0.32.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/06_0.32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/07_1.33.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/07_1.33.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/08_3.39.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/08_3.39.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/09_2.49.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/09_2.49.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/10_1.85.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/10_1.85.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/11_0.78.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/11_0.78.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/12_2.36.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/12_2.36.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/13_0.58.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/13_0.58.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/14_1.62.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/14_1.62.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/15_2.21.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/15_2.21.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/16_0.12.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/16_0.12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/17_0.40.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/17_0.40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/18_0.83.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/18_0.83.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/19_0.35.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/19_0.35.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/20_1.01.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/20_1.01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/21_4.71.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/21_4.71.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/22_3.76.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/22_3.76.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/23_1.80.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/23_1.80.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/24_3.24.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/24_3.24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/25_5.59.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/25_5.59.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/26_5.56.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/26_5.56.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/27_0.66.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/27_0.66.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/28_0.32.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/28_0.32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/29_1.41.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/29_1.41.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/30_0.24.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/30_0.24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/31_1.20.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/31_1.20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/32_0.84.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/32_0.84.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/33_1.71.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/33_1.71.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/34_0.39.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/34_0.39.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/35_3.07.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/35_3.07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/36_0.78.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/36_0.78.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/37_1.83.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/37_1.83.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/38_0.66.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/38_0.66.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/39_1.18.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/39_1.18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/40_1.34.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/40_1.34.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/41_0.92.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/41_0.92.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/42_0.80.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/42_0.80.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/43_4.01.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/43_4.01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/44_0.56.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/44_0.56.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/45_1.40.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/45_1.40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/46_1.07.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/46_1.07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/47_1.12.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/47_1.12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/48_3.22.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/48_3.22.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/49_0.46.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/49_0.46.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/50_3.12.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/50_3.12.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/51_1.62.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/51_1.62.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/52_0.57.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/52_0.57.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/53_1.74.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/53_1.74.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/54_1.04.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/54_1.04.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/55_1.43.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/55_1.43.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/56_1.98.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/56_1.98.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/57_0.15.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/57_0.15.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/58_0.23.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/58_0.23.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/59_3.33.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/59_3.33.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/60_1.05.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/60_1.05.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/61_0.57.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/61_0.57.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/62_0.43.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/62_0.43.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/63_1.72.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/63_1.72.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/64_0.33.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/64_0.33.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/65_1.08.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/65_1.08.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/66_3.64.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/66_3.64.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/67_0.20.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/67_0.20.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/68_3.04.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/68_3.04.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/69_4.33.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/69_4.33.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/70_2.08.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/70_2.08.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/71_1.07.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/71_1.07.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/72_2.32.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/72_2.32.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/73_0.61.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/73_0.61.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/74_3.50.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/74_3.50.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/75_0.29.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/75_0.29.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/76_1.55.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/76_1.55.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/77_3.57.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/77_3.57.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/78_1.04.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/78_1.04.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/79_1.66.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/79_1.66.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/80_0.58.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/80_0.58.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/81_1.08.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/81_1.08.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/82_1.98.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/82_1.98.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/83_3.67.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/83_3.67.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/84_1.03.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/84_1.03.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/85_0.29.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/85_0.29.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/86_0.23.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/86_0.23.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/87_0.67.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/87_0.67.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/88_0.34.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/88_0.34.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/89_0.39.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/89_0.39.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/90_1.44.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/90_1.44.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/91_0.14.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/91_0.14.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/92_2.17.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/92_2.17.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/93_0.84.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/93_0.84.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/94_1.45.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/94_1.45.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/95_2.69.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/95_2.69.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/96_2.57.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/96_2.57.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/97_0.24.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/97_0.24.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/98_3.87.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/98_3.87.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/99_1.41.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/output/99_1.41.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/01_1.21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/02_2.97.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/03_1.06.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/04_1.20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/05_0.97.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/06_0.32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/07_1.33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/08_3.39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/09_2.49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/10_1.85.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/11_0.78.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/12_2.36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/13_0.58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/14_1.62.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/15_2.21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/16_0.12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/17_0.40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/18_0.83.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/19_0.35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/20_1.01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/21_4.71.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/22_3.76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/23_1.80.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/24_3.24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/25_5.59.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/26_5.56.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/27_0.66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/28_0.32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/29_1.41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/30_0.24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/31_1.20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/32_0.84.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/33_1.71.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/34_0.39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/35_3.07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/36_0.78.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/37_1.83.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/38_0.66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/39_1.18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/40_1.34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/41_0.92.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/42_0.80.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/43_4.01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/44_0.56.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/45_1.40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/46_1.07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/47_1.12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/48_3.22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/49_0.46.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/50_3.12.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/51_1.62.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/52_0.57.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/53_1.74.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/54_1.04.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/55_1.43.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/56_1.98.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/57_0.15.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/58_0.23.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/59_3.33.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/60_1.05.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/61_0.57.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/62_0.43.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/63_1.72.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/64_0.33.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/65_1.08.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/66_3.64.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/67_0.20.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/68_3.04.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/69_4.33.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/70_2.08.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/71_1.07.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/72_2.32.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/73_0.61.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/74_3.50.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/75_0.29.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/76_1.55.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/77_3.57.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/78_1.04.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/79_1.66.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/80_0.58.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/81_1.08.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/82_1.98.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/83_3.67.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/84_1.03.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/85_0.29.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/86_0.23.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/87_0.67.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/88_0.34.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/89_0.39.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/90_1.44.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/91_0.14.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/92_2.17.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/93_0.84.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/94_1.45.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/95_2.69.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/96_2.57.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/97_0.24.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/98_3.87.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_images/99_1.41.JPG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tilt_detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/tilt_detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,14 +20,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.45166737">
+    <splitter split-orientation="horizontal" split-proportion="0.48502758">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="730">
-                  <caret line="96" selection-start-line="96" selection-end-line="96" />
+                <state relative-caret-position="518">
+                  <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+                  <folding>
+                    <element signature="e#0#50#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -232,20 +38,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/README.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="18" selection-start-line="18" selection-end-line="18" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/utils.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="534">
-                  <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#0#10#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="408">
+                  <caret line="17" column="111" selection-start-line="17" selection-start-column="111" selection-end-line="17" selection-end-column="111" />
                 </state>
               </provider>
             </entry>
@@ -254,13 +48,25 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tilt_detector.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="63" selection-start-line="63" selection-end-line="63" />
+                <state relative-caret-position="1536">
+                  <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/utils.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="484">
+                  <caret line="106" column="23" lean-forward="true" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
+                  <folding>
+                    <element signature="e#0#10#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -285,10 +91,10 @@
       <list>
         <option value="$PROJECT_DIR$/testing_images/main.py" />
         <option value="$PROJECT_DIR$/delete_me_Iam_for_testing.py" />
-        <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/README.txt" />
         <option value="$PROJECT_DIR$/tilt_detector.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
       </list>
     </option>
   </component>
@@ -304,7 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -316,6 +121,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,8 +183,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2568" y="-8" width="2576" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.066587865" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.066587865" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -389,7 +196,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28555554" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.08888889" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -424,34 +231,37 @@
     <entry file="file://$PROJECT_DIR$/delete_me_Iam_for_testing.py" />
     <entry file="file://$PROJECT_DIR$/README.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="17" column="111" selection-start-line="17" selection-start-column="111" selection-end-line="17" selection-end-column="111" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tilt_detector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="1536">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="106" column="23" lean-forward="true" selection-start-line="106" selection-start-column="23" selection-end-line="106" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -81,9 +81,13 @@ class TiltDetector:
         # Calculate inclination angle
         angle = self.calculate_angle(the_lines)
 
-        self.processer.save_image(the_lines, image, image_name, angle)
+        if self.results_processing_flag:
+            self.processer.save_image(the_lines,
+                                      image,
+                                      image_name,
+                                      angle)
 
-        return angle
+        return angle, the_lines
 
     def calculate_angle(self, the_lines):
         """

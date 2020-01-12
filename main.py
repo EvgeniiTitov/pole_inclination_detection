@@ -1,5 +1,5 @@
 from tilt_detector import TiltDetector, LineMerger
-from utils import ResultsHandler
+from utils import ResultsHandler, LineExtender, PolygonRetriever
 import os
 import argparse
 import sys
@@ -12,6 +12,8 @@ def parse_args():
     parser.add_argument('--folder', type=str, help="Path to a folder with images to process")
     parser.add_argument('--save_path', type=str, default=None, help="If None, don't save results, show them")
 
+    parser.add_argument('--retrieve', type=int, default=0, help="Retrieve image section defined by the two pole"
+                                                                "edge lines detected")
     arguments = parser.parse_args()
 
     return arguments
@@ -56,7 +58,7 @@ def main():
         results_handling = 1, arguments.save_path
         handler = ResultsHandler(save_path=arguments.save_path)
     else:
-        results_handling = 2, ''
+        results_handling = 0, ''
         handler = None
 
     merger = LineMerger()
@@ -64,6 +66,10 @@ def main():
     detector = TiltDetector(results_handling_way=results_handling,
                             line_merger=merger,
                             results_processor=handler)
+
+    if arguments.retrieve:
+        line_extender = LineExtender()
+        polygon_retriever = PolygonRetriever(line_extender=line_extender)
 
     total_error = 0
     images_with_calculated_angles = 0
@@ -75,7 +81,7 @@ def main():
         print(image_name)
 
         truth_angle = float(image_name[3:7])
-        predicted_tilt_angle = detector.process_image(path_to_image)
+        predicted_tilt_angle, the_lines = detector.process_image(path_to_image)
 
         if predicted_tilt_angle is not None:
             difference = abs(truth_angle - predicted_tilt_angle)
@@ -86,6 +92,13 @@ def main():
             images_with_calculated_angles += 1
         else:
             images_without_angle_calculated.append(image_name)
+
+        # Use the lines detected to retrieve the image section containing the pole
+        if arguments.retrieve and the_lines:
+            polygon_matrix = polygon_retriever.retrieve_polygon(path_to_image,
+                                                                the_lines)
+
+
 
     mean_error = round(total_error / images_with_calculated_angles, 3)
     print("\nMEAN ERROR:", mean_error * 100, "%")
