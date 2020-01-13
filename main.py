@@ -93,7 +93,15 @@ def main():
         else:
             images_without_angle_calculated.append(image_name)
 
+        assert the_lines and 1 <= len(the_lines) <= 2, "Wrong number of lines!"
+
         # Use the lines detected to retrieve the image section containing the pole
+
+        # Extraction will not be possible if only 1 line's been found. You need some
+        # condition or even an algorithm to address this issue. Like remove only part
+        # of the background. If you know one line, check which side it is closer to.
+        # Then, the other line is opposite, make some step and draw second line for the
+        # edge that wasn't detected. Better overshot than cut your a part of the pole
         if arguments.retrieve and the_lines:
             polygon_matrix = polygon_retriever.retrieve_polygon(path_to_image,
                                                                 the_lines)
