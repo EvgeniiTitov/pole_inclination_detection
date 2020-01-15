@@ -79,7 +79,9 @@ class ResultsHandler:
 
 
 class LineExtender:
+    """
 
+    """
     def extend_lines(self,
                      image,
                      the_lines):
@@ -117,6 +119,46 @@ class LineExtender:
 
         return lines_extended
 
+    def add_secondLine_and_extend(self,
+                                  image,
+                                  line):
+        """
+        Draws a line parallel to the one found by the algorithm. We assume the
+        pole is in the middle of an image, which is almost often the case because
+        the neural network places it in the middle of the bounding box
+        :param image:
+        :param the_line:
+        :return:
+        """
+        import math
+
+        lines_extended = list()
+        # First extend the line detected by the algorithm
+        x1, y1 = line[0][0][0], line[0][0][1]
+        x2, y2 = line[0][1][0], line[0][1][1]
+
+        curr_lenght = math.sqrt((x1 - x2) ** 2 + (y2 - y1) ** 2)
+
+        # y = 0
+        x_top = int(round(x1 + (x1 - x2) / curr_lenght * y1))
+
+        # y = image.shape[0]
+        x_bottom = int(
+            round(x2 + (x2 - x1) / curr_lenght * (image.shape[0] - y2))
+        )
+
+        lines_extended.append([x_top, 0])
+        lines_extended.append([x_bottom, image.shape[0]])
+
+        # Draw second approximate line parallel to the first one.
+        x_new_top = image.shape[1] - x_bottom
+        x_new_bottom = image.shape[1] - x_top
+
+        lines_extended.append([x_new_top, 0])
+        lines_extended.append([x_new_bottom, image.shape[0]])
+
+        return lines_extended
+
 
 class PolygonRetriever:
     """
@@ -131,7 +173,6 @@ class PolygonRetriever:
     ):
 
         self.line_extender = line_extender
-        self.results_processor = ResultsHandler(save_path=r"D:\Desktop\system_output\TILT_TESTING\extended_lines")
 
     def retrieve_polygon(self,
                          path_to_image,
@@ -146,18 +187,23 @@ class PolygonRetriever:
         image_name = os.path.split(path_to_image)[-1]
 
         # Since lines are usually of varying length and almost always are
-        # shorter than image's height, extend them first
+        # shorter than image's height, extend them first to successfully extract
+        # the area confined by them
         extended_lines = list()
+
+        # the_lines = [the_lines[0]]
+
         if len(the_lines) == 2:
             extended_lines += self.line_extender.extend_lines(image=image,
                                                               the_lines=the_lines)
         else:
-            # Address an issue when only one line is found
-            pass
+            # If the algorithm failed to find two lines and returned only one,
+            # we need to draw approximate second line to extract the area in between
+            extended_lines += self.line_extender.add_secondLine_and_extend(image=image,
+                                                                           line=the_lines)
 
         # Once line's been extended, use them to extract the image section
         # restricted, defined by them
-
         support_point = extended_lines[2]
         extended_lines.append(support_point)
 
@@ -165,19 +211,30 @@ class PolygonRetriever:
 
         mask = np.zeros((image.shape[0], image.shape[1]))
 
+        # Fills  in the shape defined by the points to be white in the mask. The
+        # rest is black
         cv2.fillConvexPoly(img=mask,
                            points=points,
                            color=1)
 
+        # We then convert the mask into Boolean where white pixels refrecling
+        # the image section we want to extract as True, the rest is False
         mask = mask.astype(np.bool)
 
+        # Create a white empty image
         output = np.zeros_like(image)
 
+        # Use the Boolean mask to index into the image to extract out the pixels
+        # we need. All pixels that happened to be mapped as True are taken
         output[mask] = image[mask]
 
-        cv2.imwrite(
-            os.path.join(r'D:\Desktop\system_output\TILT_TESTING\extracted', image_name),
-                         output
-                    )
+        cv2.imshow('Extracted Image', output)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+        # cv2.imwrite(
+        #     os.path.join(r'D:\Desktop\system_output\TILT_TESTING', image_name),
+        #                  output
+        #             )
 
         return

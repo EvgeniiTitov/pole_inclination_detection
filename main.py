@@ -67,10 +67,6 @@ def main():
                             line_merger=merger,
                             results_processor=handler)
 
-    if arguments.retrieve:
-        line_extender = LineExtender()
-        polygon_retriever = PolygonRetriever(line_extender=line_extender)
-
     total_error = 0
     images_with_calculated_angles = 0
     images_without_angle_calculated = []
@@ -95,17 +91,12 @@ def main():
 
         assert the_lines and 1 <= len(the_lines) <= 2, "Wrong number of lines!"
 
-        # Use the lines detected to retrieve the image section containing the pole
-
-        # Extraction will not be possible if only 1 line's been found. You need some
-        # condition or even an algorithm to address this issue. Like remove only part
-        # of the background. If you know one line, check which side it is closer to.
-        # Then, the other line is opposite, make some step and draw second line for the
-        # edge that wasn't detected. Better overshot than cut your a part of the pole
         if arguments.retrieve and the_lines:
+            line_extender = LineExtender()
+            polygon_retriever = PolygonRetriever(line_extender=line_extender)
+
             polygon_matrix = polygon_retriever.retrieve_polygon(path_to_image,
                                                                 the_lines)
-
 
 
     mean_error = round(total_error / images_with_calculated_angles, 3)
