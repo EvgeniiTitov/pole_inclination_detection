@@ -24,7 +24,10 @@ Algorithm:
 TO DO:
 - Implement metadata reading and taking it into account in case camera was tilted when an image was taken
 - Potential memory leak identified. Same image gives different results when getting processed alone or in a bulk
-- When only one line is found, you cannot extract polygon. Address this
 
 Commands:
 python main.py --image= OR --folder= --save_path= "to save images" --retrieve= "to extract the polygon"
+
+# FOR INTEGRATION
+Detector returns: angle calculated, coordinates of the line(s) detected and used for angle calculation
+concrete_polygon takes an image and the line(s), outputs only the area confined by the lines provided

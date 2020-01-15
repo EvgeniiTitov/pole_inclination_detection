@@ -1,5 +1,6 @@
 from tilt_detector import TiltDetector, LineMerger
-from utils import ResultsHandler, LineExtender, PolygonRetriever
+from utils import ResultsHandler
+from concrete_polygon_extractor import LineExtender, PolygonRetriever
 import os
 import argparse
 import sys
