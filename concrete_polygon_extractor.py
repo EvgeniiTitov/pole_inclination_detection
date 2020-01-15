@@ -1,5 +1,6 @@
 import cv2
 import os
+import sys
 import numpy as np
 
 class LineExtender:
@@ -115,7 +116,8 @@ class PolygonRetriever:
         # the area confined by them
         extended_lines = list()
 
-        the_lines = [the_lines[1]]
+        # To check when just one line was detected
+        #the_lines = [the_lines[1]]
 
         if len(the_lines) == 2:
             extended_lines += self.line_extender.extend_lines(image=image,
@@ -152,13 +154,24 @@ class PolygonRetriever:
         # we need. All pixels that happened to be mapped as True are taken
         output[mask] = image[mask]
 
-        # cv2.imshow('Extracted Image', output)
+        output_copy = output.copy()
+
+        # Get indices of all pixels that are black
+        black_pixels_indices = np.all(output == [0, 0, 0], axis=-1)
+        # Invert the matrix to get indices of not black pixels
+        non_black_pixels_indices = ~black_pixels_indices
+
+        # All black pixels become white, all not black pixels get their original values
+        output_copy[black_pixels_indices] = [255, 255, 255]
+        output_copy[non_black_pixels_indices] = output[non_black_pixels_indices]
+
+        # cv2.imshow('Extracted Image', output_copy)
         # cv2.waitKey(0)
         # cv2.destroyAllWindows()
 
         cv2.imwrite(
-            os.path.join(r'D:\Desktop\system_output\TILT_TESTING\tests', image_name),
-                         output
+            os.path.join(r'D:\Desktop\system_output\TILT_TESTING\concrete_extracted', image_name),
+                         output_copy
                     )
 
         return
