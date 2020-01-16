@@ -67,12 +67,25 @@ class ResultsHandler:
                    image_name,
                    angle):
 
+
         cv2.imwrite(os.path.join(self.save_path, image_name),
                     self.draw_lines_write_text(lines, image, angle))
 
-    def show_image(self,
-                   lines,
-                   image,
-                   angle):
+    def save_image_2(self,
+                     image_name,
+                     image):
 
-        pass
+        path = r'D:\Desktop\system_output\TILT_TESTING\results_polygon'
+        cv2.imwrite(
+            os.path.join(path, image_name),
+            image
+                    )
+
+    def show_image(self,
+                   image,
+                   lines=None,
+                   angle=None):
+
+        cv2.imshow('Extracted Image', image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()

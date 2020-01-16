@@ -52,8 +52,7 @@ class TiltDetector:
                             [(line[0], line[1]), (line[2], line[3])]
                                       )
         else:
-            print("No lines detected")
-            return
+            return None, None
 
         # Process results: merge raw lines where possible to decrease the total
         # number of lines we are working with

@@ -51,7 +51,6 @@ def main():
     # Otherwise, after each image gets processed it will be shown to a user until
     # he clicks a button to proceed to the next image if any.
     # In order to just calculate and receive angle = flag is 0
-
     if arguments.save_path is not None:
         if not os.path.exists(arguments.save_path):
             os.mkdir(arguments.save_path)
@@ -77,34 +76,54 @@ def main():
         image_name = os.path.split(path_to_image)[-1]
         print(image_name)
 
-        truth_angle = float(image_name[3:7])
+        # Find lines, calculate the angle
         predicted_tilt_angle, the_lines = detector.process_image(path_to_image)
 
+        # Keep track of the error
         if predicted_tilt_angle is not None:
+
+            # CHANGE ME BACK, FOR NEW IMGS TESTING WITHOUT ANGLE
+            # truth_angle = float(image_name[3:7])
+            truth_angle = 3
+
             difference = abs(truth_angle - predicted_tilt_angle)
             error = round(difference / truth_angle, 3)
             print("Error:", error)
 
             total_error += error
             images_with_calculated_angles += 1
+
         else:
             images_without_angle_calculated.append(image_name)
 
-        assert the_lines and 1 <= len(the_lines) <= 2, "Wrong number of lines!"
+        if not the_lines:
+            print("Failed to detect any lines for:", image_name)
+            continue
 
+        assert 1 <= len(the_lines) <= 2, "Wrong number of lines!"
+
+        # Retrieve area defined by the lines for future cracks detection
         if arguments.retrieve and the_lines:
             line_extender = LineExtender()
             polygon_retriever = PolygonRetriever(line_extender=line_extender)
 
-            polygon_matrix = polygon_retriever.retrieve_polygon(path_to_image,
-                                                                the_lines)
+            concrete_polygon = polygon_retriever.retrieve_polygon(path_to_image,
+                                                                  the_lines)
 
+            # DELETE ME I AM FOR TESTING
+            handler.save_image_2(image_name, concrete_polygon)
+            #handler.show_image(concrete_polygon)
 
-    mean_error = round(total_error / images_with_calculated_angles, 3)
-    print("\nMEAN ERROR:", mean_error * 100, "%")
+    if images_with_calculated_angles > 0:
+        mean_error = round(total_error / images_with_calculated_angles, 3)
+        print("\nMEAN ERROR:", mean_error * 100, "%")
+
+    else:
+        print("\nCannot calculate MEAN ERROR. Failed to calculate the angle for"
+              "any images")
 
     if images_without_angle_calculated:
-        print("FAILED TO CALCULATE ANGLE FOR:",
+        print("\nFAILED TO CALCULATE ANGLE FOR:",
               ' '.join(map(str, images_without_angle_calculated)))
 
 

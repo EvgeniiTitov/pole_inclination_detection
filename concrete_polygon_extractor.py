@@ -165,13 +165,4 @@ class PolygonRetriever:
         output_copy[black_pixels_indices] = [255, 255, 255]
         output_copy[non_black_pixels_indices] = output[non_black_pixels_indices]
 
-        # cv2.imshow('Extracted Image', output_copy)
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
-
-        cv2.imwrite(
-            os.path.join(r'D:\Desktop\system_output\TILT_TESTING\concrete_extracted', image_name),
-                         output_copy
-                    )
-
-        return
+        return output_copy
