@@ -73,9 +73,9 @@ class ResultsHandler:
 
     def save_image_2(self,
                      image_name,
-                     image):
+                     image,
+                     path):
 
-        path = r'D:\Desktop\system_output\TILT_TESTING\results_polygon'
         cv2.imwrite(
             os.path.join(path, image_name),
             image

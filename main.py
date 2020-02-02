@@ -110,8 +110,11 @@ def main():
             concrete_polygon = polygon_retriever.retrieve_polygon(path_to_image,
                                                                   the_lines)
 
+
             # DELETE ME I AM FOR TESTING
-            handler.save_image_2(image_name, concrete_polygon)
+            handler.save_image_2(image_name,
+                                 concrete_polygon,
+                                 arguments.save_path)
             #handler.show_image(concrete_polygon)
 
     if images_with_calculated_angles > 0:

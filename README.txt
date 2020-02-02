@@ -29,6 +29,11 @@ TO DO:
 Commands:
 python main.py --image= OR --folder= --save_path= "to save images" --retrieve= "to extract the polygon"
 
+Dasha this is how to call it:
+python C:\Users\Evgenii\Desktop\Python_Programming\Python_Projects\defect_detection_inclination\main.py
+--image=D:\Desktop\system_output\TILT_TESTING\NEW_TEST_IMAGES\130.jpg --retrieve=1
+--save_path=D:\Desktop\Datasets_for_labelling\Datasets\POLES
+
 # FOR INTEGRATION
 Detector returns: angle calculated, coordinates of the line(s) detected and used for angle calculation
 concrete_polygon takes an image and the line(s), outputs only the area confined by the lines provided -> np matrix
