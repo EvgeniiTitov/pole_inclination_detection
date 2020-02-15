@@ -46,6 +46,7 @@ class TiltDetector:
         # Find all lines on the image
         raw_lines = self.generate_lines(image)
 
+        # TO DO: REMOVE. LOOPING OVER ALL LINES WHERE NOT NECESSARY
         # Rewrite lines in a proper form (x1,y1), (x2,y2) if any found. List of lists
         if raw_lines is not None:
             lines_to_merge = list()
@@ -55,6 +56,8 @@ class TiltDetector:
                                       )
         else:
             return None, None
+
+        # TO DO: LINE FILTERING TO REMOVE HORIZONTAL ONES NEEDS TO BE HERE
 
         # Process results: merge raw lines where possible to decrease the total
         # number of lines we are working with

@@ -43,7 +43,8 @@ def main():
             sys.exit()
 
         for image_name in os.listdir(arguments.folder):
-            if not any(image_name.endswith(ext) for ext in [".jpg", ".png", ".jpeg", ".JPG", ".JPEG", ".PNG"]):
+            if not any(image_name.endswith(ext) for ext in [".jpg", ".png", ".jpeg",
+                                                            ".JPG", ".JPEG", ".PNG"]):
                 continue
 
             images_to_process.append(os.path.join(arguments.folder, image_name))
@@ -139,7 +140,7 @@ def main():
 
         print()
         for name, res, t in performance_tracker:
-            print(name, res, round(t, 3), " seconds")
+            print(name, "Res:", res, "Time:", round(t, 2), " seconds")
 
     else:
         print("\nCannot calculate MEAN ERROR. Failed to calculate the angle for"
