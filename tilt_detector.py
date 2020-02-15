@@ -39,6 +39,8 @@ class TiltDetector:
         :return: angle calculated if any pole edges found. Else returns None
         """
         image = cv2.imread(path_to_image)
+        image_resolution = image.shape[0], image.shape[1]
+
         image_name = os.path.split(path_to_image)[-1]
 
         # Find all lines on the image
@@ -75,7 +77,7 @@ class TiltDetector:
             print("No lines found, angle cannot be calculated")
             return
 
-        assert the_lines and len(the_lines) == 1 or len(the_lines) == 2, "ERROR: Wrong number of lines found"
+        assert the_lines and 1 <= len(the_lines) <= 2, "ERROR: Wrong number of lines found"
 
         # Calculate inclination angle
         angle = self.calculate_angle(the_lines)
@@ -86,7 +88,7 @@ class TiltDetector:
                                       image_name,
                                       angle)
 
-        return angle, the_lines
+        return angle, the_lines, image_resolution
 
     def calculate_angle(self, the_lines):
         """

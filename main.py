@@ -4,6 +4,7 @@ from concrete_polygon_extractor import LineExtender, PolygonRetriever
 import os
 import argparse
 import sys
+import time
 
 
 def parse_args():
@@ -67,28 +68,39 @@ def main():
                             line_merger=merger,
                             results_processor=handler)
 
-    total_error = 0
+    total_error = 0.0
     images_with_calculated_angles = 0
-    images_without_angle_calculated = []
+    images_without_angle_calculated = list()
+    performance_tracker = list()
 
     for path_to_image in images_to_process:
 
         image_name = os.path.split(path_to_image)[-1]
-        print(image_name)
+        print('\n', image_name)
 
         # Find lines, calculate the angle
-        predicted_tilt_angle, the_lines = detector.process_image(path_to_image)
+        start_time = time.time()
+        predicted_tilt_angle, the_lines, img_res = detector.process_image(path_to_image)
+        inference_time = time.time() - start_time
 
         # Keep track of the error
-        if predicted_tilt_angle is not None:
+        if predicted_tilt_angle:
 
-            # CHANGE ME BACK, FOR NEW IMGS TESTING WITHOUT ANGLE
-            # truth_angle = float(image_name[3:7])
-            truth_angle = 3
+            performance_tracker.append(
+                (image_name, img_res, inference_time)
+                                       )
+
+            try:
+                # Extract angle from the image name (naming convention)
+                truth_angle = float(image_name.split("_")[-1][:-4])
+            except:
+                print(f"\nERROR: Naming convention error: {image_name}")
+                images_with_calculated_angles += 1
+                continue
 
             difference = abs(truth_angle - predicted_tilt_angle)
             error = round(difference / truth_angle, 3)
-            print("Error:", error)
+            print(f"Predicted: {predicted_tilt_angle}, Truth: {truth_angle}, Error: {error}")
 
             total_error += error
             images_with_calculated_angles += 1
@@ -103,7 +115,7 @@ def main():
         assert 1 <= len(the_lines) <= 2, "Wrong number of lines!"
 
         # Retrieve area defined by the lines for future cracks detection
-        if arguments.retrieve and the_lines:
+        if arguments.retrieve:
             line_extender = LineExtender()
             polygon_retriever = PolygonRetriever(line_extender=line_extender)
 
@@ -121,13 +133,20 @@ def main():
         mean_error = round(total_error / images_with_calculated_angles, 3)
         print("\nMEAN ERROR:", mean_error * 100, "%")
 
+        total_time = sum(t[-1] for t in performance_tracker)
+        print("TOTAL TIME TAKEN:", total_time)
+        print("AVERAGE PER IMAGE:", round((total_time / images_with_calculated_angles), 3))
+
+        for name, res, t in performance_tracker:
+            print(name, res, round(t, 3), " seconds")
+
     else:
         print("\nCannot calculate MEAN ERROR. Failed to calculate the angle for"
-              "any images")
+              " any images")
 
     if images_without_angle_calculated:
         print("\nFAILED TO CALCULATE ANGLE FOR:",
-              ' '.join(map(str, images_without_angle_calculated)))
+              ' '.join(images_without_angle_calculated))
 
 
 if __name__ == "__main__":
