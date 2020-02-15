@@ -135,8 +135,9 @@ def main():
 
         total_time = sum(t[-1] for t in performance_tracker)
         print("TOTAL TIME TAKEN:", total_time)
-        print("AVERAGE PER IMAGE:", round((total_time / images_with_calculated_angles), 3))
+        print("AVERAGE TIME PER IMAGE:", round((total_time / images_with_calculated_angles), 3))
 
+        print()
         for name, res, t in performance_tracker:
             print(name, res, round(t, 3), " seconds")
 

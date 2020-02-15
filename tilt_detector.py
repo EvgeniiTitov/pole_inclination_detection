@@ -102,14 +102,20 @@ class TiltDetector:
             x2_1 = the_lines[0][1][0]
             y2_1 = the_lines[0][1][1]
 
-            angle_1 = round(90 - np.rad2deg(np.arctan2(abs(y2_1 - y1_1), abs(x2_1 - x1_1))), 2)
+            # Original approach
+            #angle_1 = round(90 - np.rad2deg(np.arctan2(abs(y2_1 - y1_1), abs(x2_1 - x1_1))), 2)
+
+            angle_1 = round(np.rad2deg(np.arctan(abs(x2_1 - x1_1)/abs(y2_1 - y1_1))), 2)
 
             x1_2 = the_lines[1][0][0]
             y1_2 = the_lines[1][0][1]
             x2_2 = the_lines[1][1][0]
             y2_2 = the_lines[1][1][1]
 
-            angle_2 = round(90 - np.rad2deg(np.arctan2(abs(y2_2 - y1_2), abs(x2_2 - x1_2))), 2)
+            # Original approach
+            # angle_2 = round(90 - np.rad2deg(np.arctan2(abs(y2_2 - y1_2), abs(x2_2 - x1_2))), 2)
+
+            angle_2 = round(np.rad2deg(np.arctan(abs(x2_2 - x1_2) / abs(y2_2 - y1_2))), 2)
 
             return round((angle_1 + angle_2) / 2, 2)
 
@@ -119,7 +125,9 @@ class TiltDetector:
             x2 = the_lines[0][1][0]
             y2 = the_lines[0][1][1]
 
-            return round(90 - np.rad2deg(np.arctan2(abs(y2 - y1), abs(x2 - x1))), 2)
+            # Original approach
+            # return round(90 - np.rad2deg(np.arctan2(abs(y2 - y1), abs(x2 - x1))), 2)
+            return round(np.rad2deg(np.arctan(abs(x2 - x1)/abs(y2 - y1))), 2)
 
     def retrieve_pole_lines(self, merged_lines, image):
         """
