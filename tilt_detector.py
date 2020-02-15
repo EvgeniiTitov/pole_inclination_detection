@@ -46,25 +46,13 @@ class TiltDetector:
         # Find all lines on the image
         raw_lines = self.generate_lines(image)
 
-        # TO DO: REMOVE. LOOPING OVER ALL LINES WHERE NOT NECESSARY
-        # Rewrite lines in a proper form (x1,y1), (x2,y2) if any found. List of lists
-        if raw_lines is not None:
-            lines_to_merge = list()
-            for line in self.get_lines(raw_lines):
-                lines_to_merge.append(
-                            [(line[0], line[1]), (line[2], line[3])]
-                                      )
-        else:
-            return None, None
 
-        # TO DO: LINE FILTERING TO REMOVE HORIZONTAL ONES NEEDS TO BE HERE
+        if raw_lines is None:
+            return None, None, image_resolution
 
         # Process results: merge raw lines where possible to decrease the total
         # number of lines we are working with
-        merged_lines = self.merger.merge_lines(lines_to_merge)
-
-        # VISUALIZE MERGED LINES
-        #self.processer.save_image(merged_lines, image, image_name, len(merged_lines))
+        merged_lines = self.merger.merge_lines(raw_lines)
 
         # Pick lines based on which the angle will be calculated. Ideally we are looking for 2 lines
         # which represent both pole's edges. If there is 1, warn user and calculate the angle based
@@ -78,7 +66,7 @@ class TiltDetector:
 
         else:
             print("No lines found, angle cannot be calculated")
-            return
+            return None, None, image_resolution
 
         assert the_lines and 1 <= len(the_lines) <= 2, "ERROR: Wrong number of lines found"
 
@@ -247,12 +235,6 @@ class TiltDetector:
 
         return thresh
 
-    def get_lines(self, lines_in):
-        if cv2.__version__ < "3.0":
-            return lines_in[0]
-
-        return [line[0] for line in lines_in]
-
 
 class LineMerger:
     """
@@ -262,7 +244,7 @@ class LineMerger:
     care about them.
     """
     def __init__(self):
-        self._angle_thresh = 70
+        self._angle_thresh = 75
         self._min_distance_to_merge = 30
         self._min_angle_to_merge = 30
 
@@ -313,17 +295,15 @@ class LineMerger:
 
             x1 = line[0][0]
             y1 = line[0][1]
-            x2 = line[1][0]
-            y2 = line[1][1]
+            x2 = line[0][2]
+            y2 = line[0][3]
 
             angle = abs(round(np.rad2deg(np.arctan2((y2 - y1), (x2 - x1))), 2))
 
             if angle < self._angle_thresh:
                 continue
 
-            vertical_lines.append(
-                        [(line[0][0], line[0][1]), (line[1][0], line[1][1])]
-                                  )
+            vertical_lines.append([(x1, y1), (x2, y2)])
 
         return vertical_lines
 
