@@ -1,10 +1,14 @@
-from tilt_detector import TiltDetector, LineMerger
-from utils import ResultsHandler
-from concrete_polygon_extractor import LineExtender, PolygonRetriever
+#from concrete_polygon_extractor import LineExtender, PolygonRetriever
+#from tilt_detector import TiltDetector, LineMerger
+
+from line_modifier import LineModifier
+from concrete_extractor import ConcreteExtractor
+from utils import ResultsHandler, calculate_angle
 import os
 import argparse
-import sys
+import cv2
 import time
+import sys
 
 
 def parse_args():
@@ -34,13 +38,11 @@ def main():
         if os.path.isfile(arguments.image):
             images_to_process.append(arguments.image)
         else:
-            print("ERROR: Provided image is not an image")
-            sys.exit()
+            raise IOError("Provided image is not an image")
 
     else:
         if not os.path.isdir(arguments.folder):
-            print("ERROR: Provided folder is not a folder")
-            sys.exit()
+            raise IOError("Provided folder is not a folder")
 
         for image_name in os.listdir(arguments.folder):
             if not any(image_name.endswith(ext) for ext in [".jpg", ".png", ".jpeg",
@@ -57,77 +59,79 @@ def main():
         if not os.path.exists(arguments.save_path):
             os.mkdir(arguments.save_path)
 
-        results_handling = 1, arguments.save_path
-        handler = ResultsHandler(save_path=arguments.save_path)
-    else:
-        results_handling = 0, ''
-        handler = None
-
-    merger = LineMerger()
-
-    detector = TiltDetector(results_handling_way=results_handling,
-                            line_merger=merger,
-                            results_processor=handler)
+    handler = ResultsHandler(save_path=arguments.save_path)
+    concrete_detector = ConcreteExtractor(line_modifier=LineModifier)
 
     total_error = 0.0
     images_with_calculated_angles = 0
     images_without_angle_calculated = list()
     performance_tracker = list()
 
+    # Process all images
     for path_to_image in images_to_process:
 
         image_name = os.path.split(path_to_image)[-1]
         print('\n', image_name)
 
-        # Find lines, calculate the angle
+        try:
+            image = cv2.imread(path_to_image)
+        except:
+            print("ERROR: Failed to open an image", image_name)
+            continue
+
+        img_res = (image.shape[0], image.shape[1])
+
+        # Find edges
         start_time = time.time()
-        predicted_tilt_angle, the_lines, img_res = detector.process_image(path_to_image)
+        the_edges = concrete_detector.find_pole_edges(image=image)
         inference_time = time.time() - start_time
 
-        # Keep track of the error
-        if predicted_tilt_angle:
+        assert 1 <= len(the_edges) <= 2, "ERROR: Wrong number of edges!"
+
+        if the_edges:
+
+            # Calculate angle
+            the_angle = calculate_angle(the_lines=the_edges)
 
             performance_tracker.append(
                 (image_name, img_res, inference_time)
-                                       )
+            )
 
             try:
-                # Extract angle from the image name (naming convention)
+                # Extract angle from the image name (NAMING CONVENTION)
                 truth_angle = float(image_name.split("_")[-1][:-4])
             except:
                 print(f"\nERROR: Naming convention error: {image_name}")
                 images_with_calculated_angles += 1
                 continue
 
-            difference = abs(truth_angle - predicted_tilt_angle)
+            difference = abs(truth_angle - the_angle)
             error = round(difference / truth_angle, 3)
-            print(f"Predicted: {predicted_tilt_angle}, Truth: {truth_angle}, Error: {error}")
+            print(f"Predicted: {the_angle}, Truth: {truth_angle}, Error: {error}")
 
             total_error += error
             images_with_calculated_angles += 1
 
+            # Postprocess the results
+            image = handler.draw_lines_write_text(lines=the_edges,
+                                                  image=image,
+                                                  angle=the_angle)
+            handler.save_image_2(image_name=image_name,
+                               image=image)
+
         else:
             images_without_angle_calculated.append(image_name)
-
-        if not the_lines:
-            print("Failed to detect any lines for:", image_name)
-            continue
-
-        assert 1 <= len(the_lines) <= 2, "Wrong number of lines!"
+            print("Failed to detect edges for:", image_name)
 
         # Retrieve area defined by the lines for future cracks detection
         if arguments.retrieve:
-            line_extender = LineExtender()
-            polygon_retriever = PolygonRetriever(line_extender=line_extender)
 
-            concrete_polygon = polygon_retriever.retrieve_polygon(path_to_image,
-                                                                  the_lines)
-
+            concrete_polygon = concrete_detector.retrieve_polygon(the_lines=the_edges,
+                                                                  image=image)
 
             # DELETE ME I AM FOR TESTING
             handler.save_image_2(image_name,
-                                 concrete_polygon,
-                                 arguments.save_path)
+                                 concrete_polygon)
             #handler.show_image(concrete_polygon)
 
     if images_with_calculated_angles > 0:
@@ -143,12 +147,11 @@ def main():
             print(name, "Res:", res, "Time:", round(t, 2), " seconds")
 
     else:
-        print("\nCannot calculate MEAN ERROR. Failed to calculate the angle for"
-              " any images")
+        print("\nCannot calculate MEAN ERROR. Failed to calculate angle for any images")
 
     if images_without_angle_calculated:
         print("\nFAILED TO CALCULATE ANGLE FOR:",
-              ' '.join(images_without_angle_calculated))
+                                ' '.join(images_without_angle_calculated))
 
 
 if __name__ == "__main__":

@@ -1,7 +1,46 @@
 import cv2
 import os
-import sys
 import numpy as np
+
+
+def calculate_angle(the_lines: list) -> float:
+    """
+    Calculates angle of the line(s) provided
+    :param the_lines: list of lists, lines found and filtered
+    :return: angle
+    """
+    if len(the_lines) == 2:
+        x1_1 = the_lines[0][0][0]
+        y1_1 = the_lines[0][0][1]
+        x2_1 = the_lines[0][1][0]
+        y2_1 = the_lines[0][1][1]
+
+        # Original approach
+        # angle_1 = round(90 - np.rad2deg(np.arctan2(abs(y2_1 - y1_1), abs(x2_1 - x1_1))), 2)
+
+        angle_1 = round(np.rad2deg(np.arctan(abs(x2_1 - x1_1) / abs(y2_1 - y1_1))), 2)
+
+        x1_2 = the_lines[1][0][0]
+        y1_2 = the_lines[1][0][1]
+        x2_2 = the_lines[1][1][0]
+        y2_2 = the_lines[1][1][1]
+
+        # Original approach
+        # angle_2 = round(90 - np.rad2deg(np.arctan2(abs(y2_2 - y1_2), abs(x2_2 - x1_2))), 2)
+
+        angle_2 = round(np.rad2deg(np.arctan(abs(x2_2 - x1_2) / abs(y2_2 - y1_2))), 2)
+
+        return round((angle_1 + angle_2) / 2, 2)
+
+    else:
+        x1 = the_lines[0][0][0]
+        y1 = the_lines[0][0][1]
+        x2 = the_lines[0][1][0]
+        y2 = the_lines[0][1][1]
+
+        # Original approach
+        # return round(90 - np.rad2deg(np.arctan2(abs(y2 - y1), abs(x2 - x1))), 2)
+        return round(np.rad2deg(np.arctan(abs(x2 - x1) / abs(y2 - y1))), 2)
 
 
 class ResultsHandler:
@@ -73,13 +112,12 @@ class ResultsHandler:
 
     def save_image_2(self,
                      image_name,
-                     image,
-                     path):
+                     image):
 
         cv2.imwrite(
-            os.path.join(path, image_name),
+            os.path.join(self.save_path, image_name),
             image
-                    )
+        )
 
     def show_image(self,
                    image,
