@@ -86,7 +86,7 @@ def main():
         the_edges = concrete_detector.find_pole_edges(image=image)
         inference_time = time.time() - start_time
 
-        assert 1 <= len(the_edges) <= 2, "ERROR: Wrong number of edges!"
+        #assert 1 <= len(the_edges) <= 2, "ERROR: Wrong number of edges!"
 
         if the_edges:
 
@@ -113,11 +113,11 @@ def main():
             images_with_calculated_angles += 1
 
             # Postprocess the results
-            image = handler.draw_lines_write_text(lines=the_edges,
-                                                  image=image,
-                                                  angle=the_angle)
-            handler.save_image_2(image_name=image_name,
-                               image=image)
+            # image = handler.draw_lines_write_text(lines=the_edges,
+            #                                       image=image,
+            #                                       angle=the_angle)
+            # handler.save_image_2(image_name=image_name,
+            #                    image=image)
 
         else:
             images_without_angle_calculated.append(image_name)
