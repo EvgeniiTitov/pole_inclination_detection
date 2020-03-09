@@ -1,6 +1,6 @@
 Task: estimate concrete pole inclination
 
-MEAN ERROR on 99 test images is 11.5%
+MEAN ERROR on 150 test images is 13.5%
 
 Algorithm:
 1. Read/Open an image (-> np array)
@@ -21,19 +21,5 @@ Algorithm:
 
 7. Use these two lines to calculate the angle
 
-TO DO:
-- Implement metadata reading and taking it into account in case camera was tilted when an image was taken
-- Potential memory leak identified. Same image gives different results when getting processed alone or in a bulk
-- SLOW! NEEDS TO BE OPTIMIZED
-
 Commands:
 python main.py --image= OR --folder= --save_path= "to save images" --retrieve= "to extract the polygon"
-
-Dasha this is how to call it:
-python C:\Users\Evgenii\Desktop\Python_Programming\Python_Projects\defect_detection_inclination\main.py
---image=D:\Desktop\system_output\TILT_TESTING\NEW_TEST_IMAGES\130.jpg --retrieve=1
---save_path=D:\Desktop\Datasets_for_labelling\Datasets\POLES
-
-# FOR INTEGRATION
-Detector returns: angle calculated, coordinates of the line(s) detected and used for angle calculation
-concrete_polygon takes an image and the line(s), outputs only the area confined by the lines provided -> np matrix
